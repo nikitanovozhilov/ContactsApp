@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ContactsApp
 {
@@ -28,7 +24,8 @@ namespace ContactsApp
             set
             {
                 var valueString = value.ToString();
-                if (valueString.Length == 11 && valueString[0] == '7')
+                long num = 0;
+                if (valueString.Length == 11 && valueString[0] == '7' && long.TryParse(valueString, out num))
                 {
                     _phoneNumber = value;
                 }

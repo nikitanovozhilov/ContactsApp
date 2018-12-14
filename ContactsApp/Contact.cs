@@ -56,6 +56,12 @@ namespace ContactsApp
             VkId = vkId;
         }
 
+        public Contact()
+        {
+            _birthDate = new DateTime(2000,1,1);
+            Phone = new PhoneNumber(70000000000);
+        }
+
         /// <summary>
         /// Ввод имени контакта.
         /// </summary>
@@ -107,7 +113,7 @@ namespace ContactsApp
             {
                 if (value.Year > 1900)
                 {
-                    _birthDate = BirthDate;
+                    _birthDate = value;
                 }
                 else
                 {

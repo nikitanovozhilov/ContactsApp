@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace ContactsApp
 {
-    class Project
+    public class Project
     {
         /// <summary>
         /// Список контактов.
