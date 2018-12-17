@@ -71,13 +71,17 @@ namespace ContactsApp
 
             set
             {
-                if (value != string.Empty && value.Length < 50)
+                if (value == string.Empty)
                 {
-                    _name = value;
+                    throw new ArgumentException("Поле 'Name' не может быть пустым");
+                }
+                else if (value.Length > 50)
+                {
+                    throw new ArgumentException("Длина имени должна быть не более 50 символов, а была" + value.Length);
                 }
                 else
                 {
-                    throw new ArgumentException("Некорректный ввод имени");
+                    _name = value;
                 }
             }
         }
@@ -91,13 +95,17 @@ namespace ContactsApp
 
             set
             {
-                if (value != string.Empty && value.Length < 50)
+                if (value == string.Empty)
                 {
-                    _surname = value;
+                    throw new ArgumentException("Поле 'Surname' не может быть пустым");
+                }
+                else if (value.Length > 50)
+                {
+                    throw new ArgumentException("Длина фамилии должна быть не более 50 символов, а была" + value.Length);
                 }
                 else
                 {
-                    throw new ArgumentException("Некорректный ввод фамилии");
+                    _surname = value;
                 }
             }
         }
@@ -111,13 +119,18 @@ namespace ContactsApp
 
             set
             {
-                if (value.Year > 1900)
+                if (value.Year <= 1900)
                 {
-                    _birthDate = value;
+                    throw new ArgumentException("Дата рождения не может быть меньше 1900 года");
+                }
+                else if (value > DateTime.Today)
+                {
+                    throw new ArgumentException("Дата не должна быть больше " + DateTime.Today.ToShortDateString() +
+                                                ", а была " + value.Date.ToShortDateString());
                 }
                 else
                 {
-                    throw new ArgumentException("Некорректный ввод даты рождения");
+                    _birthDate = value;
                 }
             }
         }
@@ -131,14 +144,17 @@ namespace ContactsApp
 
             set
             {
-                if (value != string.Empty && value.Length < 50)
+                if (value == string.Empty)
                 {
-                    _email = value;
+                    throw new ArgumentNullException("Поле 'E-mail' не может быть пустым");
+                }
+                else if (value.Length > 50)
+                {
+                    throw new ArgumentException("Длина адреса почты должна быть не более 50 символов," +
+                                                " а была " + value.Length);
                 }
                 else
-                {
-                    throw new ArgumentException("Некорректный ввод электронной почты");
-                }
+                    _email = value;
             }
         }
 
@@ -151,13 +167,18 @@ namespace ContactsApp
 
             set
             {
-                if (value != string.Empty && value.Length < 15)
+                if (value == string.Empty)
                 {
-                    _vkId = value;
+                    throw new ArgumentException("Поле 'vk.com' не может быть пустым");
+                }
+                else if (value.Length > 15)
+                {
+                    throw new ArgumentException("Длина id Вконтакте должна быть не более 15 символов, а была " + value.Length);
                 }
                 else
                 {
-                    throw new ArgumentException("Некорректный ввод ID Вконтакте");
+                    _vkId = value;
+                    
                 }
             }
         }

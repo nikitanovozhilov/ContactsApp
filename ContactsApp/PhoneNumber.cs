@@ -9,6 +9,10 @@ namespace ContactsApp
     {
         private long _phoneNumber;
 
+        public PhoneNumber()
+        {
+        }
+
         public PhoneNumber(long phone)
         {
             Number = phone;

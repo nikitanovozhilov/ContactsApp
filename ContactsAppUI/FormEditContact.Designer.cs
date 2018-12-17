@@ -151,9 +151,12 @@
             // BirthdayField
             // 
             this.BirthdayField.Location = new System.Drawing.Point(81, 64);
+            this.BirthdayField.MaxDate = new System.DateTime(8509, 1, 1, 0, 0, 0, 0);
+            this.BirthdayField.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.BirthdayField.Name = "BirthdayField";
             this.BirthdayField.Size = new System.Drawing.Size(137, 20);
             this.BirthdayField.TabIndex = 11;
+            this.BirthdayField.Value = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             // 
             // OKButton
             // 
