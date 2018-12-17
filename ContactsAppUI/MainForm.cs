@@ -19,7 +19,7 @@ namespace ContactsAppUI
         /// </summary>
         private void AddContact()
         {
-            var form = new AddEditForm();
+            var form = new ContactForm();
             if (form.ShowDialog() == DialogResult.OK)
             {
                 _contactList.ContactList.Add(form.Contact);
@@ -34,7 +34,7 @@ namespace ContactsAppUI
         {
             if (ContactsList.SelectedItem != null)
             {
-                var form = new AddEditForm();
+                var form = new ContactForm();
                 form.Contact = (Contact) ContactsList.SelectedItem;
                 if (form.ShowDialog() == DialogResult.OK)
                 {
@@ -69,7 +69,7 @@ namespace ContactsAppUI
         // Добавление контакта.
         private void addContactToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddEditForm add = new AddEditForm();
+            ContactForm add = new ContactForm();
             add.ShowDialog();
         }
 

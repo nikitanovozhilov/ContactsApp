@@ -1,6 +1,6 @@
 ﻿namespace ContactsAppUI
 {
-    partial class AddEditForm
+    partial class ContactForm
     {
         /// <summary>
         /// Required designer variable.
@@ -104,7 +104,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SurnameField.Location = new System.Drawing.Point(81, 12);
             this.SurnameField.Name = "SurnameField";
-            this.SurnameField.Size = new System.Drawing.Size(334, 20);
+            this.SurnameField.Size = new System.Drawing.Size(331, 20);
             this.SurnameField.TabIndex = 6;
             this.SurnameField.TextChanged += new System.EventHandler(this.SurnameField_TextChanged);
             // 
@@ -114,7 +114,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.NameField.Location = new System.Drawing.Point(81, 38);
             this.NameField.Name = "NameField";
-            this.NameField.Size = new System.Drawing.Size(334, 20);
+            this.NameField.Size = new System.Drawing.Size(331, 20);
             this.NameField.TabIndex = 7;
             this.NameField.TextChanged += new System.EventHandler(this.NameField_TextChanged);
             // 
@@ -124,7 +124,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PhoneField.Location = new System.Drawing.Point(81, 90);
             this.PhoneField.Name = "PhoneField";
-            this.PhoneField.Size = new System.Drawing.Size(334, 20);
+            this.PhoneField.Size = new System.Drawing.Size(331, 20);
             this.PhoneField.TabIndex = 8;
             this.PhoneField.TextChanged += new System.EventHandler(this.PhoneField_TextChanged);
             // 
@@ -134,7 +134,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.EmailField.Location = new System.Drawing.Point(81, 116);
             this.EmailField.Name = "EmailField";
-            this.EmailField.Size = new System.Drawing.Size(334, 20);
+            this.EmailField.Size = new System.Drawing.Size(331, 20);
             this.EmailField.TabIndex = 9;
             this.EmailField.TextChanged += new System.EventHandler(this.EmailField_TextChanged);
             // 
@@ -144,7 +144,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.VkField.Location = new System.Drawing.Point(81, 142);
             this.VkField.Name = "VkField";
-            this.VkField.Size = new System.Drawing.Size(334, 20);
+            this.VkField.Size = new System.Drawing.Size(331, 20);
             this.VkField.TabIndex = 10;
             this.VkField.TextChanged += new System.EventHandler(this.VkField_TextChanged);
             // 
@@ -154,14 +154,14 @@
             this.BirthdayField.MaxDate = new System.DateTime(8509, 1, 1, 0, 0, 0, 0);
             this.BirthdayField.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.BirthdayField.Name = "BirthdayField";
-            this.BirthdayField.Size = new System.Drawing.Size(137, 20);
+            this.BirthdayField.Size = new System.Drawing.Size(184, 20);
             this.BirthdayField.TabIndex = 11;
             this.BirthdayField.Value = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             // 
             // OKButton
             // 
             this.OKButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.OKButton.Location = new System.Drawing.Point(259, 168);
+            this.OKButton.Location = new System.Drawing.Point(256, 168);
             this.OKButton.Name = "OKButton";
             this.OKButton.Size = new System.Drawing.Size(75, 23);
             this.OKButton.TabIndex = 12;
@@ -172,7 +172,7 @@
             // CancelButton
             // 
             this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.CancelButton.Location = new System.Drawing.Point(340, 168);
+            this.CancelButton.Location = new System.Drawing.Point(337, 168);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(75, 23);
             this.CancelButton.TabIndex = 13;
@@ -180,11 +180,11 @@
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
-            // AddEditForm
+            // ContactForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(427, 199);
+            this.ClientSize = new System.Drawing.Size(424, 199);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.OKButton);
             this.Controls.Add(this.BirthdayField);
@@ -200,10 +200,10 @@
             this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.SurnameLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.MinimumSize = new System.Drawing.Size(443, 238);
-            this.Name = "AddEditForm";
+            this.MinimumSize = new System.Drawing.Size(440, 238);
+            this.Name = "ContactForm";
             this.Text = "Add/Edit Contact";
-            this.Load += new System.EventHandler(this.AddEditForm_Load);
+            this.Load += new System.EventHandler(this.ContactForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

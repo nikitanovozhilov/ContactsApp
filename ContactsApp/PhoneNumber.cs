@@ -29,14 +29,18 @@ namespace ContactsApp
             {
                 var valueString = value.ToString();
                 long num = 0;
-                if (valueString.Length == 11 && valueString[0] == '7' && long.TryParse(valueString, out num))
+                if (valueString.Length != 11)
                 {
-                    _phoneNumber = value;
+                    throw new ArgumentException("Номер телефона должен состоять из 11 цифр, а было" + valueString.Length);
+                }
+                else if (valueString[0] != '7')
+                {
+                    throw new ArgumentException("Номер телефона должен начинаться с '7', а начинается с " + valueString[0]);
                 }
 
                 else
                 {
-                    throw new ArgumentException("Номер телефона введён некорректно");
+                    _phoneNumber = value;
                 }
             }
         }

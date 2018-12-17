@@ -5,12 +5,12 @@ using System.Windows.Forms;
 
 namespace ContactsAppUI
 {
-    public partial class AddEditForm : Form
+    public partial class ContactForm : Form
     {
         public Contact Contact;
 
 
-        public AddEditForm()
+        public ContactForm()
         {
             InitializeComponent();
         }
@@ -22,14 +22,16 @@ namespace ContactsAppUI
         }
 
         // Открытие контакта или создание нового.
-        private void AddEditForm_Load(object sender, EventArgs e)
+        private void ContactForm_Load(object sender, EventArgs e)
         {
             if (Contact == null) Contact = new Contact();
+            else PhoneField.Text = Contact.Phone.Number.ToString();
+
 
             SurnameField.Text = Contact.Surname;
             NameField.Text = Contact.Name;
             BirthdayField.Value = Contact.BirthDate;
-            PhoneField.Text = Contact.Phone.Number.ToString();
+
             EmailField.Text = Contact.Email;
             VkField.Text = Contact.VkId;
         }
@@ -81,7 +83,8 @@ namespace ContactsAppUI
         private void PhoneField_TextChanged(object sender, EventArgs e)
         {
             long num = 0;
-            if (PhoneField.Text.Length == 0 || PhoneField.Text.Length > 11 || PhoneField.Text[0] != '7' || !long.TryParse(PhoneField.Text,out num))
+            if (PhoneField.Text.Length == 0 || PhoneField.Text.Length > 11 || PhoneField.Text[0] != '7' ||
+                !long.TryParse(PhoneField.Text,out num))
             {
                 PhoneField.BackColor = Color.LightSalmon;
             }

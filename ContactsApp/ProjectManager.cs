@@ -8,7 +8,9 @@ namespace ContactsApp
     public class ProjectManager
     {
         // Путь в папку "Документы".
-        public static string DocumentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal)+@"\ContactsApp.con";
+        public static string DocumentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal)
+            +@"\ContactsApp.con";
+
         /// <summary>
         /// Сохранение списка заметок в файл.
         /// </summary>
