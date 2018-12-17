@@ -1,6 +1,6 @@
 ﻿namespace ContactsAppUI
 {
-    partial class About
+    partial class AboutForm
     {
         /// <summary>
         /// Required designer variable.
@@ -113,7 +113,7 @@
             this.GitLnk.TabStop = true;
             this.GitLnk.Text = "github.com/nikitanovozhilov/ContactsApp\r\n";
             // 
-            // About
+            // AboutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -128,7 +128,7 @@
             this.Controls.Add(this.NameLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MinimumSize = new System.Drawing.Size(450, 300);
-            this.Name = "About";
+            this.Name = "AboutForm";
             this.Text = "About";
             this.ResumeLayout(false);
             this.PerformLayout();

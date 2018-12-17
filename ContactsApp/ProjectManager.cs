@@ -9,7 +9,7 @@ namespace ContactsApp
     {
         // Путь в папку "Документы".
         public static string DocumentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal)
-            +@"\ContactsApp.con";
+                                +@"\ContactsApp.con";
 
         /// <summary>
         /// Сохранение списка заметок в файл.

@@ -62,7 +62,7 @@ namespace ContactsAppUI
         // Открытие формы About.
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            About about = new About();
+            AboutForm about = new AboutForm();
             about.ShowDialog();
         }
 
@@ -89,7 +89,7 @@ namespace ContactsAppUI
         private void RefreshList()
         {
             ContactsList.DataSource = null;
-            ContactsList.DataSource = _contactList.ContactList;
+            ContactsList.DataSource = _contactList.GetByNameOrSurname(FindBox.Text);
             ContactsList.DisplayMember = "Surname";
             ProjectManager.SaveToFile(_contactList, ProjectManager.DocumentsPath);
         }
@@ -105,6 +105,11 @@ namespace ContactsAppUI
             {
                 _contactList = new Project();
                 ProjectManager.SaveToFile(_contactList, ProjectManager.DocumentsPath);
+            }
+
+            foreach (var surname in _contactList.GetListBirthdayBoy())
+            {
+                BirthdayTodayLabel.Text += surname + " ";
             }
 
             RefreshList();
@@ -151,6 +156,24 @@ namespace ContactsAppUI
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void FindBox_TextChanged(object sender, EventArgs e)
+        {
+            RefreshList();
+        }
+
+        private void ContactsList_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                RemoveContact();
+            }
+        }
+
+        private void BirthdayTodayLabel_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

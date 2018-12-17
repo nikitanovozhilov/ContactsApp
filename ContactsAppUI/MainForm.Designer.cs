@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.Menu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,6 +45,9 @@
             this.ContactsList = new System.Windows.Forms.ListBox();
             this.FindBox = new System.Windows.Forms.TextBox();
             this.FindLabel = new System.Windows.Forms.Label();
+            this.BirthdayTodayLabel = new System.Windows.Forms.Label();
+            this.AllertLabel = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.BirthdayDate = new System.Windows.Forms.DateTimePicker();
             this.VkField = new System.Windows.Forms.TextBox();
             this.EmailField = new System.Windows.Forms.TextBox();
@@ -61,6 +65,7 @@
             this.SplitContainer.Panel1.SuspendLayout();
             this.SplitContainer.Panel2.SuspendLayout();
             this.SplitContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Menu
@@ -71,7 +76,7 @@
             this.helpToolStripMenuItem});
             this.Menu.Location = new System.Drawing.Point(0, 0);
             this.Menu.Name = "Menu";
-            this.Menu.Size = new System.Drawing.Size(784, 24);
+            this.Menu.Size = new System.Drawing.Size(984, 24);
             this.Menu.TabIndex = 0;
             this.Menu.Text = "menuStrip1";
             // 
@@ -86,7 +91,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -156,6 +161,9 @@
             // 
             // SplitContainer.Panel2
             // 
+            this.SplitContainer.Panel2.Controls.Add(this.BirthdayTodayLabel);
+            this.SplitContainer.Panel2.Controls.Add(this.AllertLabel);
+            this.SplitContainer.Panel2.Controls.Add(this.pictureBox1);
             this.SplitContainer.Panel2.Controls.Add(this.BirthdayDate);
             this.SplitContainer.Panel2.Controls.Add(this.VkField);
             this.SplitContainer.Panel2.Controls.Add(this.EmailField);
@@ -169,8 +177,8 @@
             this.SplitContainer.Panel2.Controls.Add(this.NameLabel);
             this.SplitContainer.Panel2.Controls.Add(this.SurnameLabel);
             this.SplitContainer.Panel2MinSize = 250;
-            this.SplitContainer.Size = new System.Drawing.Size(784, 324);
-            this.SplitContainer.SplitterDistance = 150;
+            this.SplitContainer.Size = new System.Drawing.Size(984, 425);
+            this.SplitContainer.SplitterDistance = 219;
             this.SplitContainer.TabIndex = 1;
             this.SplitContainer.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.SplitContainer_SplitterMoved);
             // 
@@ -180,7 +188,7 @@
             this.DeleteButton.FlatAppearance.BorderSize = 0;
             this.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteButton.Image = global::ContactsAppUI.Properties.Resources.minus;
-            this.DeleteButton.Location = new System.Drawing.Point(82, 287);
+            this.DeleteButton.Location = new System.Drawing.Point(82, 389);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(28, 29);
             this.DeleteButton.TabIndex = 5;
@@ -193,7 +201,7 @@
             this.EditButton.FlatAppearance.BorderSize = 0;
             this.EditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EditButton.Image = global::ContactsAppUI.Properties.Resources.edit;
-            this.EditButton.Location = new System.Drawing.Point(48, 287);
+            this.EditButton.Location = new System.Drawing.Point(48, 389);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(28, 29);
             this.EditButton.TabIndex = 4;
@@ -207,7 +215,7 @@
             this.AddButton.FlatAppearance.BorderSize = 0;
             this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddButton.Image = global::ContactsAppUI.Properties.Resources.add;
-            this.AddButton.Location = new System.Drawing.Point(12, 287);
+            this.AddButton.Location = new System.Drawing.Point(12, 389);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(30, 29);
             this.AddButton.TabIndex = 3;
@@ -223,7 +231,7 @@
             this.ContactsList.Location = new System.Drawing.Point(12, 32);
             this.ContactsList.Name = "ContactsList";
             this.ContactsList.ScrollAlwaysVisible = true;
-            this.ContactsList.Size = new System.Drawing.Size(135, 251);
+            this.ContactsList.Size = new System.Drawing.Size(193, 342);
             this.ContactsList.TabIndex = 2;
             this.ContactsList.SelectedIndexChanged += new System.EventHandler(this.ContactsList_SelectedIndexChanged);
             // 
@@ -233,8 +241,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FindBox.Location = new System.Drawing.Point(48, 6);
             this.FindBox.Name = "FindBox";
-            this.FindBox.Size = new System.Drawing.Size(99, 20);
+            this.FindBox.Size = new System.Drawing.Size(157, 20);
             this.FindBox.TabIndex = 1;
+            this.FindBox.TextChanged += new System.EventHandler(this.FindBox_TextChanged);
             // 
             // FindLabel
             // 
@@ -244,6 +253,40 @@
             this.FindLabel.Size = new System.Drawing.Size(30, 13);
             this.FindLabel.TabIndex = 0;
             this.FindLabel.Text = "Find:";
+            // 
+            // BirthdayTodayLabel
+            // 
+            this.BirthdayTodayLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.BirthdayTodayLabel.AutoSize = true;
+            this.BirthdayTodayLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
+            this.BirthdayTodayLabel.Location = new System.Drawing.Point(102, 374);
+            this.BirthdayTodayLabel.Name = "BirthdayTodayLabel";
+            this.BirthdayTodayLabel.Size = new System.Drawing.Size(0, 13);
+            this.BirthdayTodayLabel.TabIndex = 16;
+            this.BirthdayTodayLabel.TextChanged += new System.EventHandler(this.BirthdayTodayLabel_TextChanged);
+            // 
+            // AllertLabel
+            // 
+            this.AllertLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AllertLabel.AutoSize = true;
+            this.AllertLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
+            this.AllertLabel.Location = new System.Drawing.Point(102, 361);
+            this.AllertLabel.Name = "AllertLabel";
+            this.AllertLabel.Size = new System.Drawing.Size(132, 13);
+            this.AllertLabel.TabIndex = 15;
+            this.AllertLabel.Text = "Сегодня день рождения:";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pictureBox1.Image = global::ContactsAppUI.Properties.Resources.bdbackground;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 335);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(761, 90);
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
             // 
             // BirthdayDate
             // 
@@ -260,7 +303,7 @@
             this.VkField.Location = new System.Drawing.Point(73, 136);
             this.VkField.Name = "VkField";
             this.VkField.ReadOnly = true;
-            this.VkField.Size = new System.Drawing.Size(545, 20);
+            this.VkField.Size = new System.Drawing.Size(676, 20);
             this.VkField.TabIndex = 11;
             // 
             // EmailField
@@ -270,7 +313,7 @@
             this.EmailField.Location = new System.Drawing.Point(73, 110);
             this.EmailField.Name = "EmailField";
             this.EmailField.ReadOnly = true;
-            this.EmailField.Size = new System.Drawing.Size(545, 20);
+            this.EmailField.Size = new System.Drawing.Size(676, 20);
             this.EmailField.TabIndex = 10;
             // 
             // PhoneField
@@ -280,7 +323,7 @@
             this.PhoneField.Location = new System.Drawing.Point(73, 84);
             this.PhoneField.Name = "PhoneField";
             this.PhoneField.ReadOnly = true;
-            this.PhoneField.Size = new System.Drawing.Size(545, 20);
+            this.PhoneField.Size = new System.Drawing.Size(676, 20);
             this.PhoneField.TabIndex = 9;
             // 
             // NameField
@@ -290,7 +333,7 @@
             this.NameField.Location = new System.Drawing.Point(73, 32);
             this.NameField.Name = "NameField";
             this.NameField.ReadOnly = true;
-            this.NameField.Size = new System.Drawing.Size(545, 20);
+            this.NameField.Size = new System.Drawing.Size(676, 20);
             this.NameField.TabIndex = 7;
             // 
             // SurameField
@@ -300,7 +343,7 @@
             this.SurameField.Location = new System.Drawing.Point(73, 6);
             this.SurameField.Name = "SurameField";
             this.SurameField.ReadOnly = true;
-            this.SurameField.Size = new System.Drawing.Size(545, 20);
+            this.SurameField.Size = new System.Drawing.Size(676, 20);
             this.SurameField.TabIndex = 6;
             // 
             // VkIDLabel
@@ -361,10 +404,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 348);
+            this.ClientSize = new System.Drawing.Size(984, 449);
             this.Controls.Add(this.SplitContainer);
             this.Controls.Add(this.Menu);
-            this.MinimumSize = new System.Drawing.Size(800, 226);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(800, 315);
             this.Name = "MainForm";
             this.Text = "ContactApp";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -376,6 +420,7 @@
             this.SplitContainer.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SplitContainer)).EndInit();
             this.SplitContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -411,6 +456,9 @@
         private System.Windows.Forms.Label BirthdayLabel;
         private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.Label SurnameLabel;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label AllertLabel;
+        private System.Windows.Forms.Label BirthdayTodayLabel;
     }
 }
 

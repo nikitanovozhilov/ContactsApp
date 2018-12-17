@@ -37,7 +37,6 @@ namespace ContactsApp
                 {
                     throw new ArgumentException("Номер телефона должен начинаться с '7', а начинается с " + valueString[0]);
                 }
-
                 else
                 {
                     _phoneNumber = value;

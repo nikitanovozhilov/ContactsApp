@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
-using Newtonsoft.Json;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ContactsApp
 {
@@ -21,8 +22,16 @@ namespace ContactsApp
         public List<Contact> Sort()
         {
             var list = ContactList;
-            list.Sort((a, b) => a.Name.CompareTo(b.Name));
+            list.Sort((a, b) => a.Surname.CompareTo(b.Surname));
             return list;
+        }
+
+        public List<string> GetListBirthdayBoy()
+        {
+            var listContacts = ContactList.Where(
+                a => a.BirthDate.Day == DateTime.Now.Day && a.BirthDate.Month == DateTime.Now.Month);
+
+            return listContacts.Select(contact => contact.Surname).ToList();
         }
 
         /// <summary>
@@ -30,7 +39,7 @@ namespace ContactsApp
         /// </summary>
         public List<Contact> GetByNameOrSurname(string text)
         {
-            return ContactList.FindAll(a => a.Surname.Contains(text) || a.Name.Contains(text));
+            return Sort().FindAll(a => a.Surname.Contains(text) || a.Name.Contains(text));
         }
     }
 }
