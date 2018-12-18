@@ -5,7 +5,7 @@ namespace ContactsApp
     /// <summary>
     /// Класс, описывающий контакт.
     /// </summary>
-    public class Contact
+    public class Contact: ICloneable
     {
         /// <summary>
         /// Поле с именем контакта.
@@ -123,9 +123,9 @@ namespace ContactsApp
                 {
                     throw new ArgumentException("Дата рождения не может быть меньше 1900 года");
                 }
-                else if (value > DateTime.Today)
+                else if (value > DateTime.Now)
                 {
-                    throw new ArgumentException("Дата не должна быть больше " + DateTime.Today.ToShortDateString() +
+                    throw new ArgumentException("Дата не должна быть больше " + DateTime.Now.ToShortDateString() +
                                                 ", а была " + value.Date.ToShortDateString());
                 }
                 else
@@ -146,7 +146,7 @@ namespace ContactsApp
             {
                 if (value == string.Empty)
                 {
-                    throw new ArgumentNullException("Поле 'E-mail' не может быть пустым");
+                    throw new ArgumentException("Поле 'E-mail' не может быть пустым");
                 }
                 else if (value.Length > 50)
                 {
@@ -181,6 +181,20 @@ namespace ContactsApp
                     
                 }
             }
+        }
+
+
+        public object Clone()
+        {
+            var contact = new Contact();
+            contact.Name = Name;
+            contact.Surname = Surname;
+            contact.Phone = Phone;
+            contact.BirthDate = BirthDate;
+            contact.Email = Email;
+            contact.VkId = VkId;
+
+            return contact;
         }
     }
 }

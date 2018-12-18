@@ -26,6 +26,10 @@ namespace ContactsApp
             return list;
         }
 
+        /// <summary>
+        /// Получение списка именинников.
+        /// </summary>
+        /// <returns></returns>
         public List<string> GetListBirthdayBoy()
         {
             var listContacts = ContactList.Where(

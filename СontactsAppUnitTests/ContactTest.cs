@@ -1,24 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using ContactsApp;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ContactsApp;
 using NUnit.Framework;
+using System;
 
 namespace СontactsAppUnitTests
 {
     [TestFixture]
-    class ContactTest
+    public class ContactTest
     {
         private Contact _contact;
-        private PhoneNumber _phoneNumber;
 
         [SetUp]
         public void InitContact()
         {
             _contact = new Contact();
-            _phoneNumber = new PhoneNumber();
-        }
+;       }
 
         [Test(Description = "Позитивный тест геттера Name")]
         public void NameTestGet_CorrectValue()
@@ -39,7 +34,7 @@ namespace СontactsAppUnitTests
             Assert.AreEqual(Name, actual, "Cеттер Name задает неправильное значение");
         }
 
-        [Test(Description = "Проверка на ввод имени, длинной более 50 символов")]
+        [Test(Description = "Проверка на ввод имени, длиной более 50 символов")]
         public void NameTestSet_Longer50()
         {
             var wrongName = "ИванИванИванИванИванИванИванИванИванИванИванИванИван";
@@ -85,8 +80,8 @@ namespace СontactsAppUnitTests
                                                                                    " если фамилия содержит более 50 символов");
         }
 
-        [Test(Description = "Проверка на ввод фамилии, длинной более 50 символов")]
-        public void SurnameTestSet_Equal()
+        [Test(Description = "Проверка на ввод фамилии, длиной 0 символов")]
+        public void SurnameTestSet_Equal0()
         {
             var wrongSurname = "";
             Assert.Throws<ArgumentException>(() => { _contact.Surname = wrongSurname; }, "Должно возникать исключения," +
@@ -105,6 +100,110 @@ namespace СontactsAppUnitTests
             Assert.AreEqual(BirthDate, actual, "Геттер BirthDate возвращает неправильное значение");
         }
 
+        [Test(Description = "Проверка на ввод года рождения, меньше 1900")]
+        public void BirthDateTestSet_IncorrectMinValue()
+        {
+            Assert.Throws<ArgumentException>(() => { _contact.BirthDate = new DateTime(1000, 1, 1); },
+                "Должно возникать исключение," +
+                " если год рождения меньше 1900 года");
+        }
 
+        [Test(Description = "Проверка на ввод года рождения, больше текущего")]
+        public void BirthDateTestSet_IncorrectBigValue()
+        {
+            Assert.Throws<ArgumentException>(() => { _contact.BirthDate = new DateTime(3000, 1, 1); },
+                "Должно возникать исключение," +
+                " если год рождения больше текущего");
+        }
+
+        /// <summary>
+        /// Тесты Email.
+        /// </summary>
+        [Test(Description = "Позитивный тест геттера Email")]
+        public void EmailTestGet_CorrectValue()
+        {
+            var Email = "ivan@vanek.ru";
+            _contact.Name = Email;
+            var actual = _contact.Name;
+            Assert.AreEqual(Email, actual, "Геттер Email возвращает неправильное значение");
+        }
+
+        [Test(Description = "Позитивный тест сеттера Email")]
+        public void EmailTestSet_CorrectValue()
+        {
+            var Email = "ivan@vanek.ru";
+            _contact.Email = Email;
+            var NewEmail = "ivan@vanek.ru";
+            var actual = _contact.Email;
+            Assert.AreEqual(Email, actual, "Cеттер Email задает неправильное значение");
+        }
+
+        [Test(Description = "Проверка на ввод адреса почты, длиной более 50 символов")]
+        public void EmailTestSet_Longer50()
+        {
+            var wrongEmail = "ivan@vanek.ruivan@vanek.ruivan@vanek.ruivan@vanek.ruivan@vanek.ru";
+            Assert.Throws<ArgumentException>(() => { _contact.Email = wrongEmail; }, "Должно возникать исключения," +
+                                                                                         " если Email содержит более 50 символов");
+        }
+
+        [Test(Description = "Проверка адреса почты с длиной 0")]
+        public void EmailTestSet_Equal0()
+        {
+            var wrongEmail = string.Empty;
+            Assert.Throws<ArgumentException>(() => { _contact.Email = wrongEmail; }, "Должно возникать исключения," +
+                                                                                         " если Email не содержит символов");
+        }
+
+        /// <summary>
+        /// Тесты VkId.
+        /// </summary>
+        [Test(Description = "Позитивный тест геттера VkId")]
+        public void VkIdTestGet_CorrectValue()
+        {
+            var VkId = "superman";
+            _contact.VkId = VkId;
+            var actual = _contact.VkId;
+            Assert.AreEqual(VkId, actual, "Геттер VkId возвращает неправильное значение");
+        }
+
+        [Test(Description = "Позитивный тест сеттера VkId")]
+        public void VkIdTestSet_CorrectValue()
+        {
+            var VkId = "superman";
+            _contact.VkId = VkId;
+            var NewVkId = "superman";
+            var actual = _contact.VkId;
+            Assert.AreEqual(VkId, actual, "Cеттер VkId задает неправильное значение");
+        }
+
+        [Test(Description = "Проверка на ввод ID Вконтакте, длиной более 50 символов")]
+        public void VkIdTestSet_Longer50()
+        {
+            var wrongVkId = "supermansuperman";
+            Assert.Throws<ArgumentException>(() => { _contact.VkId = wrongVkId; }, "Должно возникать исключения," +
+                                                                                     " если VkId содержит более 50 символов");
+        }
+
+        [Test(Description = "Проверка id-вконтакте с длиной 0")]
+        public void VkIdTestSet_Equal0()
+        {
+            var wrongVkId = "";
+            Assert.Throws<ArgumentException>(() => { _contact.VkId = wrongVkId; }, "Должно возникать исключения," +
+                                                                                     " если VkId не содержит символов");
+        }
+
+        /// <summary>
+        /// Тестирование клонирования.
+        /// </summary>
+        [Test(Description = "Позитивный тест Clone()")]
+        public void TestClone_CorrectValue()
+        {
+            _contact.Surname = "Фамилия";
+            _contact.Name = "Petr";
+            _contact.Email = "hhh";
+            _contact.VkId = "id01";
+            var clone = (Contact)_contact.Clone();
+            Assert.AreEqual(_contact.ToString(), clone.ToString(), "Метод Clone возвращает неверное значение.");
+        }
     }
 }

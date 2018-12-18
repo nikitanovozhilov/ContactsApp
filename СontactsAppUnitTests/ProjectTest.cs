@@ -1,13 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ContactsApp;
 using NUnit.Framework;
+using System.Linq;
 
 namespace СontactsAppUnitTests
 {
-    class ProjectTest
+    [TestFixture]
+    public class ProjectTest
     {
+        [Test(Description = "Позитивный тест добавления элемента в список")]
+        public void TestProjectListAdd_CorrectValue()
+        {
+            Contact contact = new Contact();
+            contact.Surname = "Petrow";
+            var project = new Project();
+            project.ContactList.Add(contact);
+            var actual = project.ContactList.First();
+            Assert.AreEqual(contact, actual, "Project возвращает неправильное значение");
+        }
     }
 }
