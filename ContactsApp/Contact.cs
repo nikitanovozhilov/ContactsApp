@@ -81,7 +81,7 @@ namespace ContactsApp
                 }
                 else
                 {
-                    _name = value;
+                    _name = Char.ToUpper(value[0]) + value.Substring(1);
                 }
             }
         }
@@ -105,7 +105,7 @@ namespace ContactsApp
                 }
                 else
                 {
-                    _surname = value;
+                    _surname = Char.ToUpper(value[0]) + value.Substring(1);
                 }
             }
         }

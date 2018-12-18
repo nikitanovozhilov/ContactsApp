@@ -234,6 +234,7 @@
             this.ContactsList.Size = new System.Drawing.Size(193, 342);
             this.ContactsList.TabIndex = 2;
             this.ContactsList.SelectedIndexChanged += new System.EventHandler(this.ContactsList_SelectedIndexChanged);
+            this.ContactsList.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ContactsList_KeyUp);
             // 
             // FindBox
             // 
@@ -264,7 +265,6 @@
             this.BirthdayTodayLabel.Name = "BirthdayTodayLabel";
             this.BirthdayTodayLabel.Size = new System.Drawing.Size(0, 13);
             this.BirthdayTodayLabel.TabIndex = 16;
-            this.BirthdayTodayLabel.TextChanged += new System.EventHandler(this.BirthdayTodayLabel_TextChanged);
             // 
             // AllertLabel
             // 

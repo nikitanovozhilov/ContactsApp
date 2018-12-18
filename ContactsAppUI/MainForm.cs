@@ -155,6 +155,7 @@ namespace ContactsAppUI
         // Exit.
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            DialogResult = DialogResult.Cancel;
             Close();
         }
 
@@ -169,11 +170,6 @@ namespace ContactsAppUI
             {
                 RemoveContact();
             }
-        }
-
-        private void BirthdayTodayLabel_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
