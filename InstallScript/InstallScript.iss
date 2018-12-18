@@ -19,7 +19,7 @@ DefaultDirName={pf}\{#MyAppName}
 DisableProgramGroupPage=yes
 OutputDir=Installer
 OutputBaseFilename=setup
-SetupIconFile=C:\Users\admin\source\repos\nikitanovozhilov\ContactsApp\Address.ico
+SetupIconFile=..\Address.ico
 Compression=lzma
 SolidCompression=yes
 
@@ -32,9 +32,9 @@ Name: "ukrainian"; MessagesFile: "compiler:Languages\Ukrainian.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "C:\Users\admin\source\repos\nikitanovozhilov\ContactsApp\ContactsAppUI\bin\Release\ContactsAppUI.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\admin\source\repos\nikitanovozhilov\ContactsApp\ContactsAppUI\bin\Release\ContactsApp.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\admin\source\repos\nikitanovozhilov\ContactsApp\ContactsAppUI\bin\Release\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\ContactsAppUI\bin\Release\ContactsAppUI.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\ContactsAppUI\bin\Release\ContactsApp.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\ContactsAppUI\bin\Release\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]

@@ -57,7 +57,8 @@ namespace ContactsAppUI
             }
         }
 
-       private void SurnameField_TextChanged(object sender, EventArgs e)
+        //Подсветка ошибок поля "Surname".
+        private void SurnameField_TextChanged(object sender, EventArgs e)
         {
             if (SurnameField.Text.Length == 0 || SurnameField.Text.Length > 50)
             {
@@ -69,6 +70,7 @@ namespace ContactsAppUI
             }
         }
 
+        //Подсветка ошибок поля "Name".
         private void NameField_TextChanged(object sender, EventArgs e)
         {
             if (NameField.Text.Length == 0 || NameField.Text.Length > 50)
@@ -81,6 +83,7 @@ namespace ContactsAppUI
             }
         }
 
+        //Подсветка ошибок поля "Phone".
         private void PhoneField_TextChanged(object sender, EventArgs e)
         {
             long num = 0;
@@ -95,6 +98,7 @@ namespace ContactsAppUI
             }
         }
 
+        //Подсветка ошибок поля "Email".
         private void EmailField_TextChanged(object sender, EventArgs e)
         {
             if (EmailField.Text.Length == 0 || EmailField.Text.Length > 50)
@@ -107,6 +111,7 @@ namespace ContactsAppUI
             }
         }
 
+        //Подсветка ошибок поля "vk.com".
         private void VkField_TextChanged(object sender, EventArgs e)
         {
             if (VkField.Text.Length == 0 || VkField.Text.Length > 15)

@@ -79,10 +79,6 @@ namespace ContactsAppUI
             EditContact();
         }
 
-        private void SplitContainer_SplitterMoved(object sender, SplitterEventArgs e)
-        {
-        }
-
         /// <summary>
         /// Метод обновления списка контактов.
         /// </summary>

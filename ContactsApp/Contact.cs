@@ -183,7 +183,6 @@ namespace ContactsApp
             }
         }
 
-
         public object Clone()
         {
             var contact = new Contact();

@@ -27,6 +27,7 @@ namespace ContactsApp
                 serializer.Serialize(writer, (Project)contactList);
             }
         }
+
         /// <summary>
         /// Сохранение контактов в путь по умолчанию.
         /// </summary>
@@ -35,7 +36,8 @@ namespace ContactsApp
         {
             SaveToFile(contactList, DocumentsPath);
         }
-         /// <summary>
+
+        /// <summary>
         /// Получение список заметок из файла.
         /// </summary>
         /// <param name="filename">Имя файла.</param>
@@ -55,6 +57,7 @@ namespace ContactsApp
             }
             return notes;
         }
+
         /// <summary>
         /// Возвращает список контактов из файла по умолчанию.
         /// </summary>

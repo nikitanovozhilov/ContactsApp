@@ -180,7 +180,6 @@
             this.SplitContainer.Size = new System.Drawing.Size(984, 425);
             this.SplitContainer.SplitterDistance = 219;
             this.SplitContainer.TabIndex = 1;
-            this.SplitContainer.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.SplitContainer_SplitterMoved);
             // 
             // DeleteButton
             // 
