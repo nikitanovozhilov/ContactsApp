@@ -123,8 +123,8 @@ namespace СontactsAppUnitTests
         public void EmailTestGet_CorrectValue()
         {
             var Email = "ivan@vanek.ru";
-            _contact.Name = Email;
-            var actual = _contact.Name;
+            _contact.Email = Email;
+            var actual = _contact.Email;
             Assert.AreEqual(Email, actual, "Геттер Email возвращает неправильное значение");
         }
 
