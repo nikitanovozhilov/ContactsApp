@@ -36,6 +36,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="nunit.framework, Version=3.11.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.11.0\lib\net45\nunit.framework.dll</HintPath>
@@ -135,4 +139,21 @@
     <Error Condition="!Exists('..\packages\NUnit.3.11.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.11.0\build\NUnit.props'))" />
     <Error Condition="!Exists('..\packages\NUnit3TestAdapter.3.11.2\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.3.11.2\build\net35\NUnit3TestAdapter.props'))" />
   </Target>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>rd /s /q $(SolutionDir)InstallScript\Release 
+rd /s /q $(SolutionDir)InstallScript\Installers 
+rd /s /q $(SolutionDir)InstallScript\Installer
+md $(SolutionDir)InstallScript\Release 
+md $(SolutionDir)InstallScript\Installers 
+xcopy $(SolutionDir)\ContactsAppUI\bin\Release\*.dll $(SolutionDir)InstallScript\Release\ 
+xcopy $(SolutionDir)\ContactsAppUI\bin\Release\*.exe $(SolutionDir)InstallScript\Release\ 
+"C:\Program Files (x86)\Inno Setup 5\ISCC.exe" $(SolutionDir)InstallScript\InstallScript.iss 
+xcopy $(SolutionDir)\InstallScript\Installer\setup.exe $(SolutionDir)InstallScript\Installers 
+rd /s /q $(SolutionDir)InstallScript\Installer
+rd /s /q $(SolutionDir)InstallScript\Release</PostBuildEvent>
+  </PropertyGroup>
 </Project>
